@@ -3,10 +3,10 @@ import requests
 
 def get_deposit_products_2():
     # 본인의 API KEY 로 수정합니다.
-    api_key_2 = "51adee17d40ad092e7405c23e9680bb6"
+    api_key_2 = ""
     return api_key_2
 
-api_key_2 = "51adee17d40ad092e7405c23e9680bb6"
+api_key_2 = ""
 
 # 아래 코드는 수정하지 않습니다.
 if __name__ == '__main__':
@@ -94,7 +94,7 @@ def get_deposit_products(api_response):
     return final_result
 
 result_4 = get_deposit_products(response_2)
-print(result_4)
+#print(result_4)
 #--------------------------------------------------------------------
 # 전체 정기예금 상품 리스트를 출력하시오.
 # 공식문서의 요청변수와 예제 요청결과(JSON) 부분을 참고합니다.
