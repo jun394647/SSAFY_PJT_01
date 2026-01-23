@@ -1,125 +1,104 @@
-# pjt0123 with 경린
-
-
-제공해주신 프로젝트 명세서 내용을 바탕으로 정리한 Markdown 페이지입니다.
-
----
-
-[01-PJT] 파이썬을 활용한 API 데이터 수집 
-
-본 프로젝트는 외부 API를 활용하여 데이터를 수집하고, 이를 사용 목적에 맞게 가공 및 정제하는 데이터 처리 역량 강화를 목표로 합니다.
-
-## 1. 프로젝트 개요
-
-**진행 일자**: 2026.01.23 
-
-
-## 2. 준비사항
-
-**필수 라이브러리**: `requests` 
-
-
-* **제공 폴더 구조**:
-`skeleton/weather`: 필수 요구사항 구현용 스켈레톤 코드 
-
-
-`skeleton/deposit`: 심화 요구사항 구현용 스켈레톤 코드 
-
-
-
-
-* **사용 API**:
-**OpenWeatherMap API**: 무료 날씨 데이터 수집 
-
-
-**금융상품통합비교공시 API**: 정기예금 상품 및 옵션 정보 수집 
-
-
-
-
-
----
-
-## 3. 요구사항 정의
-
-3.1 기능적 요구사항 
-
-| 번호 | 분류 | 요구사항명 | 요구사항 상세 | 우선순위 |
-| --- | --- | --- | --- | --- |
-| **F101** | 날씨 | Key 값 출력 | 응답 데이터를 JSON 변환 후 Key 값만 출력 
-
- | 필수 |
-| **F102** | 날씨 | 원하는 값 추출 | <br>`main`, `weather` 키 값만 딕셔너리로 추출 
-
- | 필수 |
-| **F103** | 날씨 | Key 한글화 | 추출한 키 값을 한글로 변환한 새로운 딕셔너리 생성 
-
- | 필수 |
-| **F104** | 날씨 | 섭씨 온도 추가 | 기존 결과에 온도 관련 섭씨(C) 데이터 필드 추가 
-
- | 필수 |
-| **F105** | 날씨 | 생성형 AI 활용 | API 이해 및 관련 질문을 위한 프롬프트 구성 및 실행 
-
- | 필수 |
-| **F111** | 금융 | Key 값 출력 | 정기예금 응답 데이터를 JSON 변환 후 Key 값만 출력 
-
- | 심화 |
-| **F112** | 금융 | 상품 리스트 추출 | 전체 응답 중 정기예금 상품 리스트 정보만 출력 
-
- | 심화 |
-| **F113** | 금융 | 옵션 정보 가공 | 각 상품의 옵션 리스트(금리, 기간 등)를 추출 및 가공 
-
- | 심화 |
-| **F114** | 금융 | 상품+옵션 통합 | 하나의 상품에 여러 옵션 정보를 포함하는 구조로 가공 
-
- | 심화 |
-| **F115** | 금융 | 생성형 AI 활용 | 금융 API 기반 프롬프트 작성 및 결과 확인 
-
- | 심화 |
-
-3.2 비기능적 요구사항 
-
-**API Key 발급**: 공식 사이트에서 발급받은 Key를 코드로 활용할 수 있도록 구성 
-
-
-**코드 품질**: 직관적인 코드 작성 및 주요 로직에 주석 포함 
-
-
-**구조화**: 기능별로 함수를 분리하여 코드 중복 최소화 
-
-
-**문서화**: README.md에 구현 설명, 학습 내용, 느낀 점을 상세히 기록 
-
-
-
----
-
-4. 작업 순서 및 제출 
-
-1. 
-**요구사항 분석**: 팀원과 함께 기본/심화 요구사항을 분석한다.
-
-
-2. 
-**GitLab 설정**: 프로젝트 이름 `01-pjt`로 생성 후 담당 강사를 Maintainer로 설정한다.
-
-
-3. 
-**기능 구현**: 필수 요구사항을 먼저 구현하고, 선택적으로 심화 과제를 진행한다.
-
-
-4. 
-**README 작성**: 단계별 구현 과정 및 학습 내용을 상세히 기록한다.
-
-
-5. 
-**최종 제출**: 구현 소스 코드, 실행 화면 캡처본, README.md를 GitLab에 업로드한다.
-
-
-
----
-
-**다음 단계로 무엇을 도와드릴까요?**
-
-* API 호출을 위한 `requests` 라이브러리 기본 코드 작성을 도와드릴까요?
-* F103(Key 한글화)이나 F114(데이터 통합)를 위한 파이썬 로직 가이드가 필요하신가요?
+import pprint 
+import requests
+
+def get_deposit_products_2():
+    # 본인의 API KEY 로 수정합니다.
+    api_key_2 = ""
+    return api_key_2
+
+api_key_2 = ""
+
+# 아래 코드는 수정하지 않습니다.
+if __name__ == '__main__':
+    # json 형태의 데이터 반환
+    result_2 = get_deposit_products_2()
+    pprint.pprint(result_2)
+
+#--------------------------------------------------------------------------------
+#아래는 상품 리스트를 불러 옵니다.
+
+result_2 = f"http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.json?auth={api_key_2}&topFinGrpNo=020000&pageNo=1"
+
+response_2 = requests.get(result_2).json()
+#6)응답 데이터에서 Key 값들만 따로 추출하여 출력, 7) 상품 리스트 정보 출력
+
+# print(response_2['result'].keys())
+# print(response_2)
+
+print("--------------------------------------------------------------")
+
+# 8) 옵션 정보 리스트 출력
+
+response_3 = response_2['result']['baseList']
+#print(response_3)
+
+def get_deposit_options(api_data):
+
+    result_data = api_data["result"]
+
+    options = result_data.get("optionList", [])
+    
+    processed_options = []
+    
+    for option in options:
+        new_data = {
+            "금융상품코드": option.get("fin_prdt_cd"),
+            "저축 금리": option.get("intr_rate"),
+            "저축 기간": option.get("save_trm"),
+            "저축금리유형": option.get("intr_rate_type"),
+            "저축금리유형명": option.get("intr_rate_type_nm"),
+            "최고 우대금리": option.get("intr_rate2")
+        }
+        processed_options.append(new_data)
+        
+    return processed_options
+
+
+result_3 = get_deposit_options(response_2)
+# print(result_3)
+
+#--------------------------------------------------------------------
+
+# 9) 상품 , 옵션 데이터 통합
+
+def get_deposit_products(api_response):
+    result_data = api_response.get("result")
+    base_list = result_data.get("baseList")
+    option_list = result_data.get("optionList")
+    
+    final_result = []
+    
+    for base in base_list: 
+        product_options = []
+        
+        for option in option_list:
+            if option.get("fin_prdt_cd") == base.get("fin_prdt_cd"):
+                option_dict = {
+                    "저축 금리": option.get("intr_rate"),
+                    "저축 기간": option.get("save_trm"),
+                    "저축금리유형": option.get("intr_rate_type"),
+                    "저축금리유형명": option.get("intr_rate_type_nm"),
+                    "최고 우대금리": option.get("intr_rate2")
+                }
+                product_options.append(option_dict)
+        
+        combined_product = {
+            "금리정보": product_options,
+            "금융상품명": base.get("fin_prdt_nm"),
+            "금융회사명": base.get("kor_co_nm")
+        }
+        
+
+        final_result.append(combined_product)
+        
+    return final_result
+
+result_4 = get_deposit_products(response_2)
+#print(result_4)
+#--------------------------------------------------------------------
+# 전체 정기예금 상품 리스트를 출력하시오.
+# 공식문서의 요청변수와 예제 요청결과(JSON) 부분을 참고합니다.
+# [힌트] 아래와 같은 순서로 데이터를 출력하며 진행합니다.
+# 1. 응답을 json 형식으로 변환합니다.
+# 2. key 값이 "result" 인 데이터를 출력합니다.
+# 3. 위의 결과 중 key 값이 "baseList" 인 데이터를 출력합니다.
